@@ -1,0 +1,78 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        transition: all .5s ease-in-out;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .ball {
+        float:left;
+        position: absolute;
+        width:300px;
+        height: 300px;
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 50%;
+        background: #C5F70E;
+        z-index:2;
+      }
+
+      .ball::before {
+        border: 20px solid white;
+        position: relative;
+        top:50%;
+        left:50%;
+        transform: translateX(-5%) translateY(-5%);
+        clip: rect(0px, 150px, 150px, 150px);
+        width:300px;
+        height:300px;
+        content:"";
+        float:left;
+        border-radius:50%;
+      }
+
+      .ball::after {
+        border: 20px solid white;
+        position: relative;
+        top:50%;
+        left:50%;
+        transform: translateX(-100%) translateY(-190%);
+        clip: rect(0px, 150px, 150px, 150px);
+        width:300px;
+        height:300px;
+        content:"";
+        float:left;
+        border-radius:50%;
+      }
+
+      .shadow {
+        background: #222;
+        position: absolute;
+        width:300px;
+        height: 30px;
+        border-radius:50%;
+        top:130px;
+        left:50%;
+        opacity:.25;
+        z-index:1;
+      }
+    </style>
+
+    <div class='container'>
+      <div class='ball'></div>
+      <div class='shadow'></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Ubuntu:300,700' />
+  </head>
+  <body>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #6E687E, #060A70);
+        font-family: Ubuntu, sans-serif;
+      }
+      .container {
+        float:left;
+        display: flex;
+        position: relative;
+        left:50%;
+        top:50%;
+        font-size:25px;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .circle {
+        width:100px;
+        height: 100px;
+        border-radius:50%;
+        border: 15px solid white;
+        margin: 10px;
+        transition: all 1s ease-in-out;
+      }
+
+      .circle::before {
+        float:left;
+        width:80px;
+        height: 80px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background: #aaa;
+        border-radius: 50%;
+        content:"";
+      }
+
+       .circle::after {
+        float:left;
+        width:50px;
+        height: 50px;
+        position: relative;
+        left:50%;
+        bottom:50%;
+        transform: translateX(-50%) translateY(-10%);
+        background: #060A70;
+        border-radius: 50%;
+        content:"";
+      } 
+    </style>
+
+      <div class='container'>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+        <div class='circle'></div>
+      </div>
+
+    <script>
+      const circles = Array.from(document.querySelectorAll(".circle"));
+      let together = false;
+      let margin = -65;
+
+      function animate() {
+        together ? margin = -12 : margin = -65;
+        circles.forEach(circle => {
+          circle.style.margin = `${margin}px`;
+        });
+        console.log(margin);
+        together = !together;
+      }
+
+      setInterval(animate, 1000);
+
+    </script>
+  </body>
+</html>

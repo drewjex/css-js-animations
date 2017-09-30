@@ -1,0 +1,250 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Frijole');
+        @import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+        * {
+          font-size:85px;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: 'Frijole', cursive;
+        }
+
+        body {
+          background:hsl(70, 12%, 90%); 
+          text-align:center;
+        }
+
+        .container {
+          z-index:100;
+          position: absolute;
+          top:35%;
+          left:50%;
+          transform: translateX(-50%) translateY(-50%);
+          transition: all .5s ease-in-out;
+          animation: 
+            fadeIn both 1s cubic-bezier(0.89,-0.13, 0, 1.19);
+        }
+
+        @keyframes fadeIn {
+          from {
+            margin:-200px;
+            opacity:0;
+          }
+          to {
+            margin: 0px;
+            opacity:1;
+          }
+        }
+
+        @keyframes shake {
+          10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+          }
+          
+          20%, 80% {
+            transform: translate3d(2px, 0, 0);
+          }
+        
+          30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+          }
+        
+          40%, 60% {
+            transform: translate3d(4px, 0, 0);
+          }
+        }
+
+        .birthday {
+          position: relative;
+          top:150px;
+          display:block;
+          text-align:center;
+          transform: scale(1);
+          transition: all .75s ease-in-out;
+        }
+
+        .balloon {
+          display:inline-block;
+          width:120px;
+          height:145px;
+          background:hsl(215,50%,65%);
+          border-radius:80%;
+          position:absolute;
+          box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07);
+          margin:20px 60px;
+          transition:
+            transform 0.5s ease,
+            opacity 2s ease-in;
+          z-index:10;
+          animation:balloons 4s ease-in-out infinite;
+          transform-origin:bottom center;
+          opacity:0;
+        }
+
+        @keyframes balloons {
+          0%,100%{ transform:translateY(0) rotate(-4deg); }
+          50%{ transform:translateY(-25px) rotate(4deg); }
+        }
+
+
+        .balloon:before {
+          content:"";
+          font-size:20px;
+          color:hsl(215,30%,50%);
+          display:block;
+          text-align:center;
+          width:100%;
+          position:absolute;
+          bottom:-12px;
+          z-index:-100;
+        }
+
+        .balloon:after {
+          display:inline-block; top:145px;
+          position:absolute;
+          height:250px;
+          width:1px;
+          margin:0 auto;
+          content:"";
+          background:rgba(0,0,0,0.2); 
+        }
+
+        .footer {
+          position: absolute;
+          opacity: 0;
+          bottom:100px;
+          width:100%;
+          font-size:60px;
+          font-family: 'Pacifico', cursive;
+          transition: all 1s ease-in-out;
+        }
+
+    </style>
+
+      <div class='container'>
+        <div class='birthday zero'>
+          HAPPY
+        </div>
+        <div class='birthday one'>
+          BIRTHDAY
+        </div>
+        <div class='birthday two'>
+          <font color='pink'><u>LYNETTE</u></font>
+        </div>
+        <div class='birthday three'>
+          !!
+        </div>
+      </div>
+
+      <div class='footer'>
+        Love, Drew and Wendy :)
+      </div>
+
+    <script>
+
+      const happy = document.querySelector(".zero");
+      const birthday = document.querySelector(".one");
+      const lynette = document.querySelector(".two");
+      const exclamation = document.querySelector(".three");
+      const elements = [happy, birthday, lynette, exclamation];
+
+      let transitioning = false;
+      let index = 0;
+      let numBalloons = 50;
+
+      colorfy(".zero");
+      colorfy(".one");
+      colorfy(".three");
+
+      function colorfy(className) {
+        const letters = Array.from(document.querySelector(className).innerHTML);
+        let newHTML = "";
+        letters.forEach(letter => {
+            let color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+            newHTML += `<font color='${color}'>${letter}</font>`;	
+        });
+        document.querySelector(className).innerHTML = newHTML;  
+      }
+
+      function startAnimation(element) {
+        if (element == null && index == 4) {
+          setTimeout(() => {
+            lynette.style.animation = `shake 1.82s cubic-bezier(.36,.07,.19,.97) infinite`;
+            Array.from(document.querySelectorAll(".balloon")).forEach(balloon => {
+              balloon.style.opacity = .85;
+            });
+            document.querySelector('.footer').style.opacity = 1;
+          }, 1000);
+          return;
+        } else if (element == null) return;
+        element.style.transform = `scale(3)`;
+        element.style.zIndex = `100`;
+        transitioning = true;
+      }
+
+      function resetAnimation(element) {
+        this.style.transform = `scale(1)`;
+        if (transitioning) {
+          transitioning = false;
+        } else {
+          index++;
+          startAnimation(elements[index]);
+        } 
+      }
+
+      function createBalloons(num) {
+        for (let i=0; i<num; i++) {
+          let balloon = document.createElement("div");
+          balloon.className = "balloon";
+          balloon.style.transform = `scale(${getRandomArbitrary(0.1, 2)})`;
+          let quadrant = getRandomInt(0, 4);
+          switch (quadrant) {
+            case 0:
+              balloon.style.top = `${getRandomInt(0, 20)}%`;
+              balloon.style.left = `${getRandomInt(0, 20)}%`;
+              break;
+            case 1:
+              balloon.style.top = `${getRandomInt(60, 80)}%`;
+              balloon.style.left = `${getRandomInt(70, 90)}%`;
+              break;
+            case 2:
+              balloon.style.top = `${getRandomInt(0, 20)}%`;
+              balloon.style.left = `${getRandomInt(70, 90)}%`;
+              break;
+            case 3:
+              balloon.style.top = `${getRandomInt(60, 80)}%`;
+              balloon.style.left = `${getRandomInt(0, 20)}%`;
+              break;
+          }
+          balloon.style.background = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+          balloon.style.animationDuration = `${getRandomInt(3, 6)}s`;
+          document.body.appendChild(balloon);
+        }
+      }
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; 
+      }
+
+      function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      setTimeout(() => startAnimation(elements[index]), 1000);
+
+      elements.forEach(element => {
+        element.addEventListener("transitionend", resetAnimation);
+      });
+
+      createBalloons(numBalloons);
+
+    </script>
+  </body>
+</html>
