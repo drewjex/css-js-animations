@@ -1,0 +1,196 @@
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Ubuntu:300,700' />
+    </head>
+    <body>
+        <style>
+
+        body {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          background: linear-gradient(to right, #322E38, #01010C);
+          font-family: Ubuntu, sans-serif;
+        }  
+
+          .wrapper {
+            margin: 2em auto;
+            max-width: 970px;
+          }
+
+          .ta-center { text-align: center; }
+
+          img {
+            vertical-align: middle;
+            max-width: 100%;
+          }
+
+          .masonry {
+            display: flex;
+            flex-flow: column wrap;
+            margin-left: -8px; /* Adjustment for the gutter */
+            counter-reset: brick;
+          }
+
+          .masonry-brick {
+            overflow: hidden;
+            border-radius: 5px;
+            margin: 0 0 8px 8px;  /* Some Gutter */
+            background-color: #eee;
+            position: relative;
+          }
+
+          .masonry-brick:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 5000;
+            color: white;
+            transform: translate(-50%, -50%);
+            counter-increment: brick;
+            content: counter(brick);
+            transition: font-size .25s, opacity .25s ease-in-out;
+            font-weight: 700;
+            opacity: .5;
+            font-size: 1.25em;
+          }
+
+          .masonry-brick:hover:after {
+            font-size: 2.25em;
+            opacity: 1;
+          }
+
+          .masonry-brick-caption {
+            padding: 1.5em;
+            text-align: center;
+          }
+
+          .masonry-preloader {
+            font-size: 2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: .5;
+            height: 3em;
+            display: flex;
+            justify-content: center;
+          align-items: center;
+          }
+
+          @media only screen and (min-width: 1024px) {
+            /* Vertical masonry bricks on desktop-sized screen */
+            .masonry-brick {
+              width: 33.33333%;
+            }
+          }
+
+          @media only screen and (max-width: 1023px) and (min-width: 768px) {
+            /* Vertical masonry bricks on tablet-sized screen */
+            .masonry-brick {
+              width: 50%;
+            }
+          }
+
+          .masonry-img {
+            object-fit: cover;
+            width: 100%;
+            filter: brightness(50%);
+          }
+          </style>
+      
+        <div class='wrapper'>
+            <div class="masonry">
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/800?image=1" alt="Masonry Brick #1" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/600?image=2" alt="Masonry Brick #2" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/400?image=3" alt="Masonry Brick #3" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/500?image=4" alt="Masonry Brick #4" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/700?image=5" alt="Masonry Brick #5" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/300?image=6" alt="Masonry Brick #6" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/500?image=7" alt="Masonry Brick #7" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/650?image=8" alt="Masonry Brick #8" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/350?image=9" alt="Masonry Brick #9" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/420?image=10" alt="Masonry Brick #10" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/300?image=11" alt="Masonry Brick #11" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/500?image=12" alt="Masonry Brick #12" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/550?image=13" alt="Masonry Brick #13" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/900?image=14" alt="Masonry Brick #14" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/800?image=15" alt="Masonry Brick #15" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/400?image=16" alt="Masonry Brick #16" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/500?image=17" alt="Masonry Brick #17" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/650?image=18" alt="Masonry Brick #18" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/550?image=19" alt="Masonry Brick #19" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/440?image=20" alt="Masonry Brick #20" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/480?image=21" alt="Masonry Brick #21" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/680?image=22" alt="Masonry Brick #22" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/920?image=23" alt="Masonry Brick #23" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/650?image=24" alt="Masonry Brick #24" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/350?image=25" alt="Masonry Brick #25" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/425?image=26" alt="Masonry Brick #26" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/500?image=27" alt="Masonry Brick #27" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/450?image=28" alt="Masonry Brick #28" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/350?image=29" alt="Masonry Brick #29" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/900?image=30" alt="Masonry Brick #30" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/520?image=31" alt="Masonry Brick #31" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/650?image=32" alt="Masonry Brick #32" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/750?image=33" alt="Masonry Brick #33" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/800?image=34" alt="Masonry Brick #34" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/900?image=35" alt="Masonry Brick #35" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/420?image=36" alt="Masonry Brick #36" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/350?image=37" alt="Masonry Brick #37" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/600?image=38" alt="Masonry Brick #38" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/480?image=39" alt="Masonry Brick #39" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/640?image=40" alt="Masonry Brick #40" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/350?image=41" alt="Masonry Brick #41" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/380?image=42" alt="Masonry Brick #42" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/420?image=43" alt="Masonry Brick #43" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/500?image=44" alt="Masonry Brick #44" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/640?image=45" alt="Masonry Brick #45" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/680?image=46" alt="Masonry Brick #46" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/700?image=47" alt="Masonry Brick #47" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/350?image=48" alt="Masonry Brick #48" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/400?image=49" alt="Masonry Brick #49" class="masonry-img"></figure>
+                <figure class="masonry-brick"><img src="https://unsplash.it/700/800?image=50" alt="Masonry Brick #50" class="masonry-img"></figure>
+                </div>
+        </div>
+  
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        
+        <script>
+        function masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {
+          var g = document.querySelector(grid),
+              gc = document.querySelectorAll(gridCell),
+              gcLength = gc.length,
+              gHeight = 0,
+              i;
+          
+          for(i=0; i<gcLength; ++i) {
+            gHeight+=gc[i].offsetHeight+parseInt(gridGutter);
+          }
+          
+          if(window.screen.width >= 1024)
+            g.style.height = gHeight/dGridCol + gHeight/(gcLength+1) + "px";
+          else if(window.screen.width < 1024 && window.screen.width >= 768)
+            g.style.height = gHeight/tGridCol + gHeight/(gcLength+1) + "px";
+          else
+            g.style.height = gHeight/mGridCol + gHeight/(gcLength+1) + "px";
+        }
+
+        var masonryGrid = document.querySelector('.masonry');
+        masonryGrid.insertAdjacentHTML("afterend", "<div class='masonry-preloader'>Loading...</div>");
+        var masonryPreloader = document.querySelector('.masonry-preloader');
+
+        ["resize", "load"].forEach(function(event) {
+          // Adding little preloader information
+          masonryGrid.style.display="none";
+          window.addEventListener(event, function() {
+            imagesLoaded( document.querySelector('.masonry'), function() {
+              masonryGrid.style.display="flex";
+              masonryPreloader.style.display="none";
+              // A masonry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.
+              masonry(".masonry", ".masonry-brick", 8, 3, 2, 1);
+              console.log("Loaded");
+            });
+          }, false);
+        });
+        </script>
+    </body>
+  </html>
